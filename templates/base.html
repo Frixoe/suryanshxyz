@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        {% if meta_description %}
+            {% block meta_description %}{% endblock %}
+        {% else %}
+            <meta name="description" content="01100001 01111001 01101111 00100000 01110111 01110100 01100110">
+        {% endif %}
+
+        <meta name="keywords" content="blog, projects, software">
+        <meta name="author" content="Suryansh S.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}{% endblock %}</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}" media="screen"/>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <h1>suryansh.xyz/</h1>
+                    <h1 style="padding-top: 0px;">{% block page_url %}{% endblock %}</h1>
+                </div>
+                <nav>
+                    <a href="/">Home</a>/
+                    <a rel="noopener" href="https://github.com/Frixoe" target="_blank">Github</a>/
+                    <a href="/about">About</a>/
+                    <a href="/contact">Contact</a>
+                </nav>
+                <p>
+                    <a href="/donate" style="color: yellow;">
+                        Donate: Bitcoin/Monero/Fiat
+                    </a>
+                </p>
+            </header>
+
+            <main>
+                {% block content %}{% endblock %}
+            </main>
+
+            <footer>
+		<p>Copyright | lol who cares</p>
+            </footer>
+        </div>
+    </body>
+</html>

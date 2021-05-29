@@ -1,0 +1,315 @@
+{% extends "article.html" %}
+
+{% block article_title %}Neural Networks{% endblock %}
+
+{% block article_full_title %}Neural Networks: All You Need to Know{% endblock %}
+
+{% block author %}Suryansh S.{% endblock %}
+
+{% block article_date %}Apr 7, 2018{% endblock %}
+
+{% block article_content %}
+    <p>
+        The backbone of any large scale ML project starts with a Network… A Neural Network and Here’s all you need to know about them.
+    </p>
+
+    <img src="{{url_for('static', filename='images/nn_aynk.webp')}}" alt="A neural network">
+    <p class="img-text">
+        A Neural Network performing a prediction
+    </p>
+
+    <p>
+        As stated in the sub-title, <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Artificial_neural_network">Neural Nets(NNs)</a> are being used almost everywhere, where there is need of a heuristic to solve a problem. This article will teach you all you need to know about a NN. After reading this article, you should have a general knowledge of NNs, how they work, and how to make one yourself.
+    </p>
+
+    <p>
+        Here’s what I will be going over:
+    </p>
+
+    <ul>
+        <li>History of Neural Nets</li>
+        <li>What really IS a Neural Network?</li>
+        <li>Units / Neurons</li>
+        <li>Weights / Parameters / Connections</li>
+        <li>Biases</li>
+        <li>Hyper-Parameters</li>
+        <li>Activation Functions</li>
+        <li>Layers</li>
+        <li>What happens when a Neural Network learns?</li>
+        <li>Implementation Details (How everything is manged in a project)</li>
+        <li>More on Neural Networks (Links to more resources)</li>
+    </ul>
+
+    <h3>
+        History of Neural Nets
+    </h3>
+
+    <p>
+        Since, I do not want to bore you with a lot of history about NNs, I will only be going over their history, very briefly. Here’s a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Artificial_neural_network#History">Wiki article</a> on the topic if you want more in-depth knowledge on their history. <b>This section is majorly based off of the wiki article.</b>
+    </p>
+
+    <p>
+        It all started when <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Warren_Sturgis_McCulloch">Warren McCulloch</a> and <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Walter_Pitts">Walter Pitts</a> created the first model of an NN in 1943. Their model was purely based on mathematics and algorithms and couldn’t be tested due to the lack of computational resources.
+    </p>
+
+    <p>
+        Later on, in 1958, <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Frank_Rosenblatt">Frank Rosenblatt</a> created the first ever model that could do pattern recognition. This would change it all. <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Perceptron">The Perceptron</a>. However, he only gave the notation and the model. The actual model still could not be tested. There were relatively minor researches done before this.
+    </p>
+
+    <p>
+        The first NNs that could be tested and had many layers were published by <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Alexey_Ivakhnenko">Alexey Ivakhnenko</a> and <b>Lapa</b> in 1965.
+    </p>
+
+    <p>
+    After these, the research on NNs stagnated due to high feasibility of Machine Learning models. This was done by <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Marvin_Minsky">Marvin Minsky</a> and <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Seymour_Papert">Seymour Papert</a> in 1969.
+    </p>
+
+    <p>
+    This stagnation however, was relatively short-termed as 6 years later in 1975 <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Paul_Werbos">Paul Werbos</a> came up with <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Backpropagation">Back-propagation</a>, which solved the <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Exclusive_or">XOR</a> problem and in general made NN learning more efficient.
+    </p>
+
+    <p>
+        <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer">Max-pooling</a> was later introduced in 1992 which helped with 3D object recognition as it helped with least shift invariance and tolerance to deformation.
+    </p>
+
+    <p>
+    Between 2009 and 2012, <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Recurrent_neural_network">Recurrent NNs</a> and Deep Feed Forward NNs created by <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/J%C3%BCrgen_Schmidhuber">Jürgen Schmidhuber’s</a> research group went on to win 8 international competitions in <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Pattern_recognition">pattern recognition</a> and <a rel="noopener"
+        target="_blank" href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a>.
+    </p>
+
+    <p>
+    In 2011, Deep NNs started incorporating convolutional layers with max-pooling layers whose output was then passed to several fully connected layers which were followed by an output layer. These are called <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Convolutional Neural Networks</a>.
+    </p>
+
+    <p>
+        There have been some more researches done after these but these are the main topics one should know about.
+    </p>
+
+    <h3>
+        What really IS a Neural Network?
+    </h3>
+
+    <p>
+        A good way to think of an NN is as a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Function_composition">composite function</a>. You give it some input and it gives you some output.
+    </p>
+
+    <p>
+        There are 3 parts that make up the architecture of a basic NN. These are:
+    </p>
+
+    <ul>
+        <li>Units / Neurons.</li>
+        <li>Connections / Weights / Parameters.</li>
+        <li>Biases.</li>
+    </ul>
+
+    <p>
+        All of the things mentioned above are what you need to construct the bare bones architecture of an NN.
+    </p>
+
+    <p>
+        You can think of these as the <b>building blocks/bricks of a building.</b> Depending on how you want the building to function, you will arrange the bricks and vice versa. The cement can be thought of as the <b>weights.</b> No matter how strong your weights are, if you don’t have a good amount of bricks for the problem at hand, the building will crumble to the ground. However, you can just get the building to function with minimal accuracy(using the least amount of bricks) and then, progressively build upon that architecture to solve a problem.
+    </p>
+
+    <p>
+        I will talk more about the weights, biases, and units in later section. Those sections might be short but the sections are there to emphasize their importance.
+    </p>
+
+    <h3>
+        Units / Neurons
+    </h3>
+
+    <p>
+        Being the least important out of the three parts of an NNs architectures, these are functions which contain weights and biases in them and wait for the data to come them. After the data arrives, they, perform some computations and then use an activation function to restrict the data to a range(mostly).
+    </p>
+
+    <p>
+        Think of these units as a box containing the weights and the biases. The box is open from 2 ends. One end receives data, the other end outputs the modified data. The data then starts to come into the box, the box then multiplies the weights with the data and then adds a bias to the multiplied data. This is a single unit which can also be thought of as a function. This function is similar to this, which is the function template for a straight line:
+    </p>
+
+    <img src="{{url_for('static', filename='images/nn_aynk1.webp')}}" alt="y=mx+b">
+    <p class="img-text">
+        y = mx + b
+    </p>
+
+    <p>
+        Imagine having multiple of these. Since now, you will be computing multiple outputs for the same data-point(input). These outputs then get sent to another unit as well which then computes the final output of the NN.
+    </p>
+
+    <p>
+        If all of this flew past you then, keep reading and you should be able to understand more.
+    </p>
+
+    <h3>
+        Weights / Parameters / Connections
+    </h3>
+
+    <p>
+        Being the most important part of an NN, these(and the biases) are the numbers the NN has to learn in order to generalize to a problem. That is all you need to know at this point.
+    </p>
+
+    <h3>
+        Biases
+    </h3>
+
+    <p>
+        These numbers represent what the NN “thinks” it should add after multiplying the weights with the data. Of course, these are always wrong but the NN then learns the optimal biases as well.
+    </p>
+
+    <h3>
+        Hyper-Parameters
+    </h3>
+
+    <p>
+        These are the values which you have to manually set. If you think of an NN as a machine, the nobs that change the behavior of the machine would be the hyper-parameters of the NN.
+    </p>
+
+    <p>
+        You can read another one of my articles <a rel="noopener" target="_blank" href="https://suryansh.xyz/articles/ga_nn">here(Genetic Algorithms + Neural Networks = Best of Both Worlds)</a> to find out how to make your computer learn the “optimal” hyper-parameters for an NN.
+    </p>
+
+    <h3>
+        Activation Functions
+    </h3>
+
+    <p>
+        These are also known as mapping functions. They take some input on the x-axis and output a value in a restricted range(mostly). They are used to convert large outputs from the units into a smaller value — most of the times — and promote non-linearity in your NN. Your choice of an activation function can drastically improve or hinder the performance of your NN. You can choose different activation functions for different units if you like.
+    </p>
+
+    <p>
+        Here are some common activation functions:
+    </p>
+
+    <ul>
+        <li>
+            <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Sigmoid_function">Sigmoid:</a>
+            <img src="{{url_for('static', filename='images/nn_aynk2.webp')}}" alt="Sigmoid activation function">
+            <p class="img-text">
+                The Sigmoid function
+            </p>
+        </li>
+        <li>
+            <a rel="noopener" target="_blank" href="https://reference.wolfram.com/language/ref/Tanh.html">Tanh:</a>
+            <img src="{{url_for('static', filename='images/nn_aynk3.webp')}}" alt="Tanh activation function">
+            <p class="img-text">
+                The tanh function
+            </p>
+        </li>
+        <li>
+            <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU: Rectified Linear Unit:</a>
+            <img src="{{url_for('static', filename='images/nn_aynk4.webp')}}" alt="Relu activation function">
+            <p class="img-text">
+                The ReLU function
+            </p>
+        </li>
+        <li>
+            <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">Leaky ReLU:</a>
+            <img src="{{url_for('static', filename='images/nn_aynk5.webp')}}" alt="Leaky Relu activation function">
+            <p class="img-text">
+                The Leaky ReLU function
+            </p>
+        </li>
+    </ul>
+
+    <h3>
+        Layers
+    </h3>
+
+    <p>
+        These are what help an NN gain complexity in any problem. Increasing layers(with units) can increase the non-linearity of the output of an NN.
+    </p>
+
+    <p>
+        Each layer contains some amount of Units. The amount in most cases is entirely up to the creator. However, having too many layers for a simple task can unnecessarily increase its complexity and in most cases decrease its accuracy. The opposite also holds true.
+    </p>
+
+    <p>
+        There are 2 layers which every NN has. Those are the input and output layers. Any layer in between those is called a hidden layer. The NN in the picture shown below contains an input layer(with 8 units), an output layer(with 4 units) and 3 hidden layers with each containing 9 units.
+    </p>
+
+    <img src="{{url_for('static', filename='images/nn_aynk6.webp')}}" alt="A Deep Neural net">
+    <p class="img-text">
+        A Deep Neural Net
+    </p>
+
+    <p>
+        An NN with 2 or more hidden layers with each layer containing a large amount of units is called a Deep Neural Network which has spawned a new field of learning called <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Deep_learning">Deep Learning</a>. The NN shown in the picture is one such example.
+    </p>
+
+    <h3>
+        What happens when a Neural Network Learns?
+    </h3>
+
+    <p>
+        The most common way to teach an NN to generalize to a problem is to use <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient Descent</a>. Since I have already written an elaborate article on this topic which you can read to fully understand GD(Gradient Descent), I will not be explaining GD in this article. Here’s the GD article: <a rel="noopener" target="_blank" href="https://suryansh.xyz/articles/gradient-descent">Gradient Descent: All You Need to Know</a>.
+    </p>
+
+    <p>
+        Coupled with GD another common way to teach an NN is to use <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Backpropagation">Back-Propagation</a>. Using this, the error at the output layer of the NN is propagated backwards using the <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Chain_rule">chain rule</a> from calculus. This for a beginner can be very challenging to understand without a good grasp on calculus so don’t get overwhelmed by it. <a rel="noopener" target="_blank" href="http://neuralnetworksanddeeplearning.com/chap2.html">Click here</a> to view an article that really helped me when I was struggling with Back-Propagation. It took me over a day and a half to figure out what was going on when the errors were being propagated backwards.
+    </p>
+
+    <p>
+        There are many different caveats in training an NN. However, going over them in an article meant for beginners would be highly tedious and unnecessarily overwhelming for the beginners.
+    </p>
+
+    <h3>
+        Implementation Details (How everything is manged in a project)
+    </h3>
+
+    <p>
+        To explain how everything is managed in a project, I have created a <a rel="noopener" target="_blank" href="https://jupyter.org/">JupyterNotebook</a> containing a small NN which learns the <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Exclusive_or">XOR logic gate</a>. <a rel="noopener" target="_blank" href="https://github.com/Frixoe/xor-neural-network/blob/master/XOR-Net-Notebook.ipynb">Click here</a> to view the notebook.
+    </p>
+
+    <p>
+        After viewing and understand what is happening in the notebook, you should have a general idea of how a basic NN is constructed.
+    </p>
+
+    <p>
+        The training data in the NN created in the notebook is arranged in a matrix. This is how data is generally arranged in. The dimensions of the matrices shown in different projects might vary.
+    </p>
+
+    <p>
+        Usually with large amounts of data, the data gets split into 2 categories: the training data(60%) and the test data(40%). The NN then trains on the training data and then tests its accuracy on the test data.
+    </p>
+
+    <h3>
+        More on Neural Networks (Links to more resources)
+    </h3>
+
+    <p>
+        If you still can’t understand what’s going on, I recommend looking at the links to resources provided below.
+    </p>
+
+    <p>
+        YouTube:
+    </p>
+
+    <ul>
+        <li><a rel="noopener" target="_blank" href="https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A">Siraj Raval</a></li>
+        <li><a rel="noopener" target="_blank" href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a></li>
+        <li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6aCibgK1PTWWu9by6XFdCfh">The Coding Train</a></li>
+        <li><a rel="noopener" target="_blank" href="https://www.youtube.com/channel/UCsBKTrp45lTfHa_p49I2AEQ">Brandon Rohrer</a></li>
+        <li><a rel="noopener" target="_blank" href="https://www.youtube.com/channel/UCrBzGHKmGDcwLFnQGHJ3XYg">giant_neural_network</a></li>
+        <li><a rel="noopener" target="_blank" href="https://www.youtube.com/channel/UCiDouKcxRmAdc5OeZdiRwAg">Hugo Larochelle</a></li>
+        <li><a rel="noopener" target="_blank" href="https://www.youtube.com/channel/UCQALLeQPoZdZC4JNUboVEUg">Jabrils</a></li>
+        <li><a rel="noopener" target="_blank" href="https://www.youtube.com/channel/UCgBncpylJ1kiVaPyP-PZauQ">Luis Serrano</a></li>
+    </ul>
+
+    <p>
+        Coursera:
+    </p>
+
+    <ul>
+        <li>
+            <a rel="noopener" target="_blank" href="https://www.coursera.org/specializations/deep-learning">Deep Learning Specialization</a>
+            by Andrew Ng
+        </li>
+        <li>
+            <a rel="noopener" target="_blank" href="https://www.coursera.org/learn/intro-to-deep-learning">Introduction to Deep Learning</a> by National Research University Higher School of Economics
+        </li>
+    </ul>
+
+    <p>
+        That’s it, Hope you learned something new!
+    </p>
+{% endblock %}

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+* {
+    background: black;
+    font-family: 'Inconsolata', monospace;
+    color: white;
+}
+
+a {
+    color: #38A2FF;
+}
+
+@media (width: 700px) {
+    padding: 0;
+}
+
+nav {
+    display: flex;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+hr {
+    border-style: dashed;
+    margin-top: 20px;
+    width: 40%;
+}
+
+pre code {
+    display: block;
+    background-color: #545454;
+    border-radius: 10px;
+    overflow: auto;
+    max-height: 700px;
+}
+
+header > h2 {
+    font-weight: 300;
+}
+
+header > h4 {
+    font-weight: 300;
+    margin-top: -10px;
+}
+
+main {
+    border-radius: 20px;
+    /* background: black; */
+    /* color: white; */
+}
+
+footer {
+    padding-top: 30px;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    max-width: 60em;
+    padding: 0 20px 0 20px;
+    flex-direction: column;
+}
+
+.article-list {
+    padding: 0;
+    padding-top: 10px;
+    list-style-type: none;
+}
+
+.article-item > p:first-of-type {
+    color: grey;
+    margin-bottom: -15px;
+}
+
+.article-item > h3 {
+    word-break: normal;
+}
+
+.article-item > p:last-of-type {
+    margin-top: -8px;
+}
+
+.article-title {
+    word-break: normal;
+}
+
+.article-content {
+    word-break: normal;
+    line-height: 1.666;
+}
+
+.img-text {
+    color: grey;
+    text-align: center;
+}
+
+.donation-option {
+    width: 400px;
+}
+
+.donation-option > p {
+    text-align: center;
+    word-break: break-all;
+}
+
+.donation-option > img {
+    min-height: 200px;
+    height: 200px;
+
+    min-width: 200px;
+    width: 200px;
+}

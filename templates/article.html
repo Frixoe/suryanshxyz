@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{% block article_title %}{% endblock %} | suryansh.xyz {% endblock %}
+
+{% block content %}
+    <h2 class="article-title">
+        {% block article_full_title %}{% endblock %}
+    </h2>
+    <h3>By {% block author %}{% endblock %} <span style="color: grey;">on {% block article_date %}{% endblock %}</span></h3>
+    <div class="article-content">
+        {% block article_content %}{% endblock %}
+    </div>
+{% endblock %}

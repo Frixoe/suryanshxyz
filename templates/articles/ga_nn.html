@@ -1,0 +1,164 @@
+{% extends "article.html" %}
+
+{% block article_title %}GA + NN{% endblock %}
+
+{% block article_full_title %}Genetic Algorithms + Neural Networks = Best of Both Worlds{% endblock %}
+
+{% block author %}Suryansh S.{% endblock %}
+
+{% block article_date %}Mar 26, 2018{% endblock %}
+
+{% block article_content %}
+    <p>
+        Neural Networks coupled with Genetic Algorithms can really accelerate the learning process to solve a certain problem.
+    </p>
+
+    <img src="{{url_for('static', filename='images/ga_nn.webp')}}" alt="First image">
+
+    <p>
+        All the big companies are now using <b>Neural Nets(NNs)</b> and <b>Genetic Algorithms(GAs)</b> to help their NNs to learn better and more efficiently. In this article, I will go over the pros and cons of coupling NNs and GAs and share a few thoughts of my own. I will also, describe the basic algorithm used in this process.
+    </p>
+
+    <p>
+        I hope this article teaches you something new! Let’s begin.
+    </p>
+
+    <hr>
+
+    <p>
+        Genetic Algorithms were very popular before NNs. Since, NNs required a lot of data, and GAs didn’t. GAs were used mostly to simulate environments and behaviors of entities in a population. They were mostly used to learn the path to a problem which we knew the answer to.
+    </p>
+
+    <p>
+        GAs are still used today but Machine Learning(ML) has mostly taken over.
+    </p>
+
+    <h3>
+        How They Work
+    </h3>
+
+    <p>
+        GAs according to Wikipedia:
+    </p>
+
+    <blockquote>
+        In computer science and operations research, a genetic algorithm (GA) is a metaheuristic inspired by the process of natural selection that belongs to the larger class of evolutionary algorithms (EA). Genetic algorithms are commonly used to generate high-quality solutions to optimization and search problems by relying on bio-inspired operators such as mutation, crossover and selection.
+    </blockquote>
+
+    <p>
+        If this still doesn’t sink in, then I’m sure <a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bJM3VgzjNV5YxVxUwzALHV">Daniel Shiffman’s playlist of GAs</a> will help. It helped me learn how GAs work and Shiffman’s videos are really good in general. Although I do recommend speeding them up.
+    </p>
+
+    <h3>
+        The Problem with NNs
+    </h3>
+
+    <p>
+        NNs have helped us solve so many problems. But there’s a huge problem that they still have. <b>Hyperparameters!</b> These are the only values that can not be learned… Until now.
+    </p>
+
+    <p>
+        Note: Hyper-parameters are values required by the NN to perform properly, given a problem.
+    </p>
+
+    <p>
+        We can use GAs to learn the best hyper-parameters for a NN! This is absolutely awesome!
+    </p>
+
+    <img src="{{url_for('static', filename='images/ga_nn1.webp')}}" alt="Minions lol">
+
+    <p>
+        Now, we don’t have to worry about “knowing the right hyperparameters” since, they can be learned using a GA. Also, we can use this to learn the parameter’s(weights) of a NN as well.
+    </p>
+
+    <p>
+        Since, in a GA, the entities learn the optimum genome for the specified problem, here, the genome of each NN will be its set of hyper-parameters.
+    </p>
+
+    <h3>
+        Solving the Problem
+    </h3>
+
+    <p>
+        To solve the hyper-parameter problem, we need to do the following:
+    </p>
+
+    <ul>
+        <li>Create a population of several NNs.</li>
+        <li>Assign random(in a range) hyper-parameters to all the NNs.</li>
+        <li>
+            Perform the following for some amount of iterations:
+            <ol>
+                <li>Train all the NNs simultaneously or one by one.</li>
+                <li>After all of them are done training, calculate their training cost.</li>
+                <li>Calculate the “fitness”(how well it did in that iteration) of each NN based on its cost. Fitness will be used to increase the chances of a NN “reproducing.” Higher the fitness, higher is its chance of reproducing. However, the best NN will have the lowest cost. If we set the fitness of that NN equal to its cost, then the best NN will have the least chance of being picked for reproduction. We can instead assign the fitness, to the reciprocal of the cost. Therefore, the lowest cost, will have the highest fitness. There are ways to assign better values to the fitness but that’s beyond the scope of this article.</li>
+                <li>Find the maximum fitness in the population(required for step 5, can be disregarded depending on the implementation of step 5).</li>
+                <li>Pick 2 NNs based on a probability system regarding their fitness. I am omitting the explanation of this, since this might seem too complicated to some. <a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=ETphJASzYes&list=PLRqwX-V7Uu6bJM3VgzjNV5YxVxUwzALHV&index=9">Here’s a video</a>, explaining the topic.</li>
+                <li>Crossover the genes of the 2 NNs. This will create a “child” NN. This NN should have some properties of the first NN and some of the second. This process has many different implementations as well.</li>
+                <li>Mutate the genes of the child. Mutating is required to maintain some amount of randomness in the GA.</li>
+                <li>Perform steps 5 — 7 for the amount of NNs in the population. You should store the “children” created, in a new population and assign the new population to the variable containing the old population.</li>
+            </ol>
+        </li>
+    </ul>
+
+    <p>
+        Note: You should create a class of the NN whose parameters you’d like to learn. The population should then initially, contain several instances of that same NN class. Also, everything written above can be learned from Shiffman’s playlist.
+    </p>
+
+    <p>
+        Performing all the steps above, at the end of the latest generation, your algorithm will have found the population containing a NN with the optimum hyper-parameters. It will be the fittest NN of all in the population. The picture shown below attempts to explain the process.
+    </p>
+
+    <img src="{{url_for('static', filename='images/ga_nn2.webp')}}" alt="Iterative process of finding hyper-parameters using GAs">
+    <p class="img-text">
+        Iterative process of finding hyper-parameters using GAs
+    </p>
+
+    <h3>
+        Another Problem
+    </h3>
+
+    <p>
+        This being a good solution to learning your hyper-parameters, it does come with its own problems. The 2 most prominent being the problem of computational resources and time.
+    </p>
+
+    <p>
+        Training many NNs simultaneously or one by one, several times requires a lot of time and computational resources. This limits the implementation of this solution to only the people who are willing to put in the money and buy a lot of processing power.
+    </p>
+
+    <p>
+        This is also the reason why it’s widely used by large companies.
+    </p>
+
+    <h3>
+        An Example
+    </h3>
+
+    <p>
+        A little less than a year ago, OpenAIs Dota 2 bot beat a pro Dota 2 player(<a rel="noopener" target="_blank" href="https://sea.pcmag.com/news/16981/elon-musks-openai-bot-beats-pro-dota-2-player">Article</a> and <a rel="noopener" target="_blank" href="https://www.youtube.com/watch?time_continue=2&v=l92J1UvHf6M">YouTube video</a>). What took the player years to learn and master, took the bot only a few weeks. In a video I saw on YouTube, an OpenAI Engineer explained how they trained the bot.
+    </p>
+
+    <p>
+        They used a GA to train their bot. Since, they had the processing power necessary, they were able to run multiple instances of the Dota 2 simultaneously with each having an instance of the bot playing the game. It took them 2 weeks to teach the bot with this process.
+    </p>
+
+    <p>
+        Just imagine how much processing power that must have required.
+    </p>
+
+    <h3>
+        Conclusion
+    </h3>
+
+    <p>
+        In my opinion, GAs are good to teach a NN but they will not be my first choice. Instead, I will try to look for better ways to learn the hyper-parameters of a NN. If there are any, that is.
+    </p>
+
+    <p>
+        However, if in the future I get access to a lot of processing power, I will be sure to try this method out.
+    </p>
+
+    <p>
+        That’s it, Hope you learned something new!
+    </p>
+{% endblock %}

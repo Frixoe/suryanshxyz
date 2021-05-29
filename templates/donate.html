@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}suryansh.xyz{% endblock %}
+
+{% block page_url %}donate{% endblock %}
+
+{% block content %}
+    <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+        <div class="donation-option">
+            <p>
+                Bitcoin (BTC)
+            </p>
+            <img src="{{url_for('static', filename='images/donate/btc.webp')}}" alt="">
+            <p>
+                3FMh3YR2jT8BMJ7zTn2SS68Kprqgt66Fof
+            </p>
+        </div>
+        <div class="donation-option">
+            <p>
+                Monero (XMR)
+            </p>
+            <img src="{{url_for('static', filename='images/donate/xmr.webp')}}" alt="">
+            <p>
+                44J1aUM7AwrcEsb45i84ya8mKMP4AFSwe2JLFBHnfC21DbCmtCRULU1JMU9sxRRPA17SSNxF4vs5vWuDkaiDZJ1cCQG9HDt
+            </p>
+        </div>
+        <div class="donation-option">
+            <p>
+                Fiat
+            </p>
+            <p>
+            <a href="https://paypal.me/sssuryansh?locale.x=en_GB">PayPal</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

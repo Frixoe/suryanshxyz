@@ -1,0 +1,118 @@
+{% extends "article.html" %}
+
+{% block meta_description %}<meta name="description" content="Machine Learning resources">{% endblock %}
+
+{% block article_title %}ML Resources{% endblock %}
+
+{% block article_full_title %}Don't know these Machine Learning Resources? You’re missing out!{% endblock %}
+
+{% block author %}Suryansh S.{% endblock %}
+
+{% block article_date %}Feb 28, 2018{% endblock %}
+
+{% block article_content %}
+    <p>
+        Through my several hours of just being on the internet, I have compiled a list of resources which I wish I had, that can help you in you’re Machine Learning career. These resources can take you very far from a beginner.
+    </p>
+
+    <p>
+        This article is divided into 2 sections, <b>Math and Machine Learning.</b>
+    </p>
+
+    <img src="{{url_for('static', filename='images/ml_resources1.webp')}}" alt="First image">
+
+    <hr>
+
+    <h3 id="math-heading">Math (For ML Beginners)</h3>
+    
+    <p>
+        Machine Learning mostly requires the fundamental understanding of Linear Algebra, Statistics and Probability. While you can learn how to use all the advanced libraries to accomplish your ML tasks, once something breaks you won’t be able to fix it. Even worse, you won’t be able to understand any new studies being done in the field, since to understand them, you will need a somewhat deep understanding of mathematics. Also, you won’t be able to conduct your own studies or play around with mathematical ML concepts.
+    </p>
+
+    <p>
+        Here is list of links which I recommend in descending order of importance:
+    </p>
+
+    <ol>
+        <li>
+            <b>Khan Academy:</b>
+            <ul>
+                <li><a rel="noopener" href="https://www.khanacademy.org/math/linear-algebra" target="_blank">Linear Algebra</a></li>
+                <li><a rel="noopener" href="https://www.khanacademy.org/math/statistics-probability" target="_blank">Statistics and Probability</a></li>
+            </ul>
+        </li>
+        <li>
+            <b>YouTube:</b>
+            <ul>
+                <li>Linear Algebra(REALLY GOOD): <a rel="noopener" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" target="_blank">3Blue1Brown</a></li>
+                <li>Statistics(as of writing this, the series is on going): <a rel="noopener" href="https://www.youtube.com/playlist?list=PL8dPuuaLjXtNM_Y-bUAhblSAdWRnmBUcr" target="_blank">CrashCourse Statistics</a></li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3 id="machine-learning-heading">Machine Learning (For Everyone)</h3>
+
+    <p>
+        This being a very huge topic, it is somewhat hard to find good resources which explain the content properly. Hopefully the following help.
+    </p>
+
+    <ol>
+        <li>
+            <b>YouTube:</b>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/3blue1brown">3Blue1brown</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/luisserrano">Luis Serrano</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/user/hugolarochelle">Hugo Larochelle</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/giant_neural_network">giant_neural_network</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/channel/UCQALLeQPoZdZC4JNUboVEUg">Jabrils</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/playlist?list=PLQVvvaa0QuDfKTOs3Keq_kaG2P55YRn5v">sentdex(Machine Learning)</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/brandonrohrer">Brandon Rohrer</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>Coursera:</b>
+            <ul>
+                <li>
+                    <a href="https://www.coursera.org/learn/machine-learning">Andrew Ng’s Machine Learning Course </a>
+                </li>
+                <li>
+                    <a href="https://www.deeplearning.ai/">Andrew Ng’s Deep Learning Specializaton</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>Podcast:</b>
+            <ul>
+                <li>
+                    <a href="https://ocdevel.com/podcasts/machine-learning">OCDevel’s Machine Learning Podcast</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Others:
+            <ul>
+                <li>
+                    <a href="https://developers.google.com/machine-learning/crash-course/">Google’s Machine Learning Crash Course</a>
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+    <p>
+        Although this might not seem like a lot, but trust me, once you start getting into the links and really start utilizing the content to the fullest, you will understand how much content there is in just these links.
+    </p>
+{% endblock %}
