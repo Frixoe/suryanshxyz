@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<rss version="2.0">
+  <channel>
+    <title>suryansh.xyz Articles</title>
+    <description>Articles related to Machine Learning, Blockchain/Cryptocurrency, Linux and most things tech by Suryansh S.</description>
+    <link>https://suryansh.xyz/</link>
+    <category domain="www.suryansh.xyz">Computers/Software/Internet/Machine Learning/Blockchain/Cryptocurrency/Linux</category>
+    <copyright>Copyright 2021 suryansh.xyz</copyright>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <language>en-us</language>
+    <pubDate>Tue, 1 June 2021</pubDate>
+    <item>
+      <title>Neural Networks: All You Need to Know</title>
+      <description>The backbone of any large scale ML project starts with a Network… A Neural Network and Here’s all you need to know about them.</description>
+      <link>https://suryansh.xyz/articles/nn_aynk</link>
+      <category domain="www.suryansh.xyz">Neural Networks/Machine Learning</category>
+      <pubDate>7 Apr 2018</pubDate>
+    </item>
+    <item>
+      <title>Genetic Algorithms + Neural Networks = Best of Both Worlds</title>
+      <description>Neural Networks coupled with Genetic Algorithms can really accelerate the learning process to solve a certain problem.</description>
+      <link>https://suryansh.xyz/articles/ga_nn</link>
+      <category domain="www.suryansh.xyz">Neural Networks/Genetic Algorithms/Machine Learning</category>
+      <pubDate>26 Mar 2018</pubDate>
+    </item>
+    <item>
+      <title>Gradient Descent: All You Need to Know</title>
+      <description>Gradient Descent is the most used learning algorithm in Machine Learning and this post will show you almost everything you need to know about it.</description>
+      <link>https://suryansh.xyz/articles/gradient_descent</link>
+      <category domain="www.suryansh.xyz">Gradient Descent/Machine Learning</category>
+      <pubDate>12 Mar 2018</pubDate>
+    </item>
+    <item>
+      <title>Don't know these Machine Learning Resources? You’re missing out!</title>
+      <description>The resources you need to get started with machine learning.</description>
+      <link>https://suryansh.xyz/articles/ml_resources</link>
+      <category domain="www.suryansh.xyz">Machine Learning</category>
+      <pubDate>28 Feb 2018</pubDate>
+    </item>
+  </channel>
+</rss>
