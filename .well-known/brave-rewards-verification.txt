@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: suryansh.xyz
+Token: ff7d167ba7554249fb23454f833af052cede087ad0334315b3ff0054f9c450ce
