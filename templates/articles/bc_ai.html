@@ -1,0 +1,144 @@
+{% extends "article.html" %}
+
+{% block article_title %}Blockchain + AI = Disaster?{% endblock %}
+
+{% block article_full_title %}Blockchain + AI = Disaster?{% endblock %}
+
+{% block author %}Suryansh S.{% endblock %}
+
+{% block article_date %}September 16, 2021{% endblock %}
+
+{% block article_content %}
+    <p>
+        Decentralization might be the last step towards our own SkyNet. Are we ready?
+    </p>
+
+    <img src="{{url_for('static', filename='images/bc_ai1.webp')}}" alt="First image">
+    <p class="img-text">
+        Arnold looking like a swole badass
+    </p>
+
+    <h3>
+        Introduction
+    </h3>
+
+    <p>
+        I'm not one to cry wolf over hypotheticals(especially those having less than 1% probability of occurrence). But as I observe the almost half-a-century long discussion on an AI apocalypse that has divided billionaires and industry leading professionals, I can't help but notice that the missing piece of the puzzle could be decentralization.
+    </p> 
+
+    <p>
+        Everyone seems to be talking about the positive aspects so I'll talk about what could go wrong, and how(kind of).
+    </p>
+
+    <p>
+        Honestly, this would make for a great sci-fi movie.
+    </p>
+
+    <h3>
+        Blockchain (Simply)
+    </h3>
+
+    <p>
+        A <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Blockchain">Blockchain</a> is an immutable collection of data which exists as a whole on the machines that are a part of the network.
+    </p>
+
+    <img src="{{url_for('static', filename='images/bc_ai2.webp')}}" alt="Second image">
+    <p class="img-text">
+        Image from <a rel="noopener" target="_blank" href="https://www.toptal.com/services/blockchain-development">Toptal</a>
+    </p>
+
+    <h3>
+        AI (Simply)
+    </h3>
+
+    <p>
+        From <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Artificial_intelligence">Wikipedia(AI)</a>: Any system that perceives its environment and takes actions that maximize its chance of achieving its goals.
+    </p>
+
+    <img src="{{url_for('static', filename='images/bc_ai3.webp')}}" alt="Third image">
+    <p class="img-text">
+        Big brain stuff
+    </p>
+
+    <h3>
+        Disaster?
+    </h3>
+
+    <p>
+        As blockchains like Cardano and Algorand move to a governance system based on <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Proof_of_stake">PoS(Proof of Stake),</a> if one person or an organization could get the majority vote-which would be very hard to do(but not impossible)-I can see one or more of the following scenarios taking place:
+    </p>
+
+    <h4>
+        Scenario 1: One agent.
+    </h4>
+
+    <p>
+        This scenario is fairly simple: When an A.I(or <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">A.G.I</a>) agent is uploaded to the blockchain, it would be able to do almost anything without any restrictions, assuming it was programmed that way.
+    </p>
+
+    <h4>
+        Scenario 2: Multiple agents controlled by one agent scattered across the network.
+    </h4>
+
+    <p>
+        In this scenario, the agent can be split into separate modules which can be controlled by a controller module.
+    </p>
+
+    <p>
+        Appropriately timed releases of these modules could help avoid suspicion.
+    </p>
+
+    <h4>
+        Scenario 2.1: Controller module split into different modules which are linked to each other.
+    </h4>
+
+    <p>
+        This scenario is exactly like Scenario 2 with the change being in the way the controller module is constructed.
+    </p>
+
+
+    <p>
+        A <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Linked_list">linked list</a> could be deployed on to the network with each node containing the code to be ran. The ending code of each node would contact the next node if necessary, passing the output from it to the next node. After all the child-agents and controller modules are uploaded to the network, the addresses of each of the nodes could be stored as data on the blockchain. The nodes would refer to this data to find the address of the nodes before them and the nodes after them. This way, you would only need to trigger one node on the controller to run the rest after it.
+    </p>
+
+    <img src="{{url_for('static', filename='images/bc_ai4.webp')}}" alt="Fourth image">
+    <p class="img-text">
+        A Linked List
+    </p>
+
+    <p>
+        In this scenario, the controller module essentially gets split into other sub-modules. This would also make the controller harder to detect as a whole.
+    </p>
+
+    <h4>
+        Scenario 3: Wait, that wasn't supposed to kill...
+    </h4>
+
+    <p>
+        Similar to Scenario 2 the child agents and the controller are uploaded to the network except this time, the controller replaces the learned parameters/weights of the child-agents with a set of different learned parameters/weights.
+    </p>
+
+    <p>
+        This would allow one child-agent to perform 2 similar tasks. An idea which forms the basis of <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Transfer_learning">Transfer Learning</a>: a very common technique used to minimize development time on neural nets solving similar problems.
+    </p>
+
+    <p>
+        The learned weights/parameters of the child-agents would be uploaded after the full agent is uploaded.
+    </p>
+
+    <h3>
+        Conclusion
+    </h3>
+
+    <p>
+        This would make a good Netflix series. Movie? Probably not because it would be too much to explain.
+    </p>
+
+    <p>
+        The future of Blockchain and A.I. as a whole remains highly uncertain. It's possible that I have missed something crucial in the design of blockchains like Cardano and Algorand which might prevent the mentioned scenarios from occuring.
+    </p>
+
+    <p>
+        In any case, I believe the combination of Blockchain and A.I. would be a step in the right direction. The positives are worth the risk.
+    </p>
+{% endblock %}
